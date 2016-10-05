@@ -8,6 +8,38 @@ const UserAuthModel = Backbone.Model.extend({
 	idAttribute: '_id'
 })
 
+const SearchCollection = Backbone.Collection.extend({
+	url: 'https://api.spotify.com/v1/search/',
+	parse: function(rawJSONP){
+		console.log(rawJSONP)
+		return rawJSONP.artists
+		}
+})
+
+const SearchModel = Backbone.Model.extend({
+	url: 'https://api.spotify.com/v1/search/',
+	parse: function(rawJSONP){
+		console.log(rawJSONP)
+		return rawJSONP.artists
+		}
+})
+
+const SuggestedAlbumCollection = Backbone.Collection.extend({
+	// url: 'https://api.spotify.com/v1/artists/',
+	parse: function(rawJSONP){
+		console.log('raw jsonp',rawJSONP)
+		return rawJSONP.items
+	}
+})
+
+const AlbumModel = Backbone.Model.extend({
+	url: 'https://api.spotify.com/v1/albums/',
+	parse: function(rawJSONP){
+		console.log('raw', rawJSONP)
+
+	}
+})
+
 UserAuthModel.register = function(newUserData) {
 	if(typeof newUserData !== 'object') {  throw new Error("User.register needs to be of type object with email & password properties") }
 	if(!newUserData.email || !newUserData.password) {  throw new Error("object needs email + password properties") }
@@ -62,8 +94,12 @@ UserAuthModel.getCurrentUser = function() {
 // but, you may extend the UserAuthModel Constructor (which is a Backbone Model)
 const User = UserAuthModel.extend({
 	initialize: function(){
-
 	}
 })
 
-export { User }
+const SearchColl = SearchCollection.extend({
+	initialize: function(){
+	}
+})
+
+export { User , SearchModel, SearchCollection, SuggestedAlbumCollection, AlbumModel}
