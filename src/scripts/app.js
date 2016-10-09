@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import Backbone from 'backbone'
 import init from './init'
 import {HomeView} from './views/homeView'
-import SuggestedAlbumsView from './views/suggestedAlbumsView'
+import {SuggestedAlbumsView} from './views/suggestedAlbumsView'
 import AlbumDetailView from './views/albumDetailView'
 import {SearchCollection, SearchModel, SuggestedAlbumCollection, AlbumModel} from './models/models'
 

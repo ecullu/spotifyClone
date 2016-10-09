@@ -36,6 +36,7 @@ const AlbumModel = Backbone.Model.extend({
 	url: 'https://api.spotify.com/v1/albums/',
 	parse: function(rawJSONP){
 		console.log('raw', rawJSONP)
+		return rawJSONP
 
 	}
 })

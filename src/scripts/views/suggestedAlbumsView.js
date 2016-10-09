@@ -7,7 +7,7 @@ const SuggestedAlbumsView = React.createClass({
 	render: function(){
 		console.log(this.props)
 		return (
-			<div className="suggested-albums-div">
+			<div className="suggested-albums-wrapper">
 				<Header/>
 				<SearchBox/>
 				<SuggestedAlbumsList albumList={this.props.albumCol.models}/>
@@ -25,54 +25,6 @@ const SuggestedAlbumsList = React.createClass({
 		}
 	},
 
-	componentWillMount: function(){
-		// this.getArtistId()
-	},
-
-	// getArtistId: function(){
-	// 	var artistId = ""
-	// 	var artistName = location.hash.split('/')
-	// 	artistName[1] = artistName[1].replace('%20', ' ')
-	// 	console.log('artist name>', artistName[1])
-	// 	var searchedArtist = new SearchModel()
-	// 			searchedArtist.fetch({
-	// 				dataType: 'json',
-	// 				data: {
-	// 					type: 'artist',
-	// 					q: artistName[1],
-	// 					limit: 1
-	// 				}
-	// 			}).then(()=>{
-	// 				console.log(searchedArtist)
-	// 				artistId = searchedArtist.get('items')[0].id
-	// 				console.log('artis id>>', artistId)
-	// 				this.setState({
-	// 					artistReady: true,
-	// 					artistId: artistId
-	// 				})
-	// 			})
-	// },
-
-	// getAlbums: function(){
-	// 	console.log(this.state.artistReady)
-	// 	var suggestedAlbumsCollection = []
-	// 	if (this.state.artistReady){
-	// 		var suggestedAlbums = new SuggestedAlbumCollection()
-	// 		suggestedAlbums.url = 'https://api.spotify.com/v1/artists/' + this.state.artistId + '/albums'
-	// 		suggestedAlbums.fetch({
-	// 			dataType: 'json',
-	// 		}).then(()=> {
-	// 			console.log('suggestedAlbums', suggestedAlbums.models)
-	// 			suggestedAlbums.models.forEach((album)=>{
-	// 				suggestedAlbumsCollection.push(<Album key={album.id} details={album}/>)
-	// 			})
-	// 		})
-	// 	}
-	// 	console.log('suggestedAlbums', suggestedAlbumsCollection)
-	// 	return suggestedAlbumsCollection
-
-	// },
-
 	getAlbumJSXArray: function(albumList){
 		var suggestedAlbumsCollection = []
 		albumList.forEach((album)=>{
@@ -84,8 +36,11 @@ const SuggestedAlbumsList = React.createClass({
 	render: function(){
 		
 		return (
-			<div className="album-list">
-				{this.getAlbumJSXArray(this.props.albumList)}
+			<div className="album-list-wrapper">
+				<div className="suggested-albums-header"><h3>Suggested Albums:</h3></div>
+				<div className="album-list">
+					{this.getAlbumJSXArray(this.props.albumList)}
+				</div>
 			</div>
 		)
 	}
@@ -107,4 +62,4 @@ const Album = React.createClass({
 	}
 })
 
-export default SuggestedAlbumsView
+export {SuggestedAlbumsView, SuggestedAlbumsList}
