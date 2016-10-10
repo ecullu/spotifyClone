@@ -84,7 +84,6 @@ const app = function() {
 		initialize: function(){
 			Backbone.history.start()
 		}
-  // document.querySelector('.container').innerHTML = "<h1>Woah!</h1>"
 	})
 	new spotifyRouter()
 }

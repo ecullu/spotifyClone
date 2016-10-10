@@ -17,13 +17,6 @@ const AlbumDetailView = React.createClass({
 
 const AlbumDetails = React.createClass({
 
-	componentDidUpdate: function(){
-		let albumCoverEl = document.getElementsByClassName('album-cover-img')
-		let albumCoverStyle = window.getComputedStyle(albumCoverEl[0],null)
-		console.log('album cover style', albumCoverStyle.getPropertyValue('height'))
-		document.getElementsByClassName('track-list')[0].style.height = albumCoverStyle.getPropertyValue('height')
-	},
-
 	getTrackListJSXArray: function(){
 		let tracksArr = []
 		this.props.albumDetails.get('tracks').items.forEach((track)=>{
@@ -33,7 +26,6 @@ const AlbumDetails = React.createClass({
 	},
 
 	render: function(){
-		console.log(this.props.albumDetails)
 		return(
 			<div className="album-detail-wrapper">
 				<div className="album-info-header">

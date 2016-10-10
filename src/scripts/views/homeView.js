@@ -45,12 +45,9 @@ const SearchBox = React.createClass({
 						limit: 10
 					}
 				}).then(()=>{
-					console.log(suggestions)
 					this.setState({
 						suggestionState: suggestions.models[0].attributes.items 
 					})
-				console.log('state>', this.state.suggestionState)
-
 				})
 			}
 			else if (event.keyCode === 13){
@@ -63,7 +60,6 @@ const SearchBox = React.createClass({
 
 		handleClick: function(name){
 				return (event)=>{
-					console.log('name>', name)
 					location.hash = 'artist/' + name
 					this.refs.searchInput.value = name
 					this.refs.suggestionsDiv.style.visibility = 'hidden'
