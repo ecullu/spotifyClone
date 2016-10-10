@@ -25,9 +25,7 @@ const app = function() {
 		handleSuggestedAlbumsView: function(){
 			var artistId = ""
 			var artistName = location.hash.split('/')
-			console.log(artistName)
 			artistName[1] = artistName[1].replace(/%20/g, ' ')
-			console.log('artist name>', artistName[1])
 			var searchedArtist = new SearchModel()
 					searchedArtist.fetch({
 						dataType: 'json',
@@ -92,6 +90,6 @@ const app = function() {
 
 // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..
 // NECESSARY FOR USER FUNCTIONALITY. DO NOT CHANGE. 
-export const app_name = init()
+// export const app_name = init()
 app()
 // x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..x..
