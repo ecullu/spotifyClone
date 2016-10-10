@@ -27,7 +27,11 @@ h1 {
     font-size: 11vmin;
     text-align: center;
     color: fuchsia;
-    letter-spacing: .2em
+    letter-spacing: .2em;
+}
+
+#header h1 {
+    margin: 1%;
 }
 
 .album-info h2 {
@@ -52,6 +56,18 @@ h1 {
 .album-container {
     width: 20%;
     margin-bottom: 2em
+}
+
+.album-container:hover {
+    cursor: pointer;
+}
+
+.album-container img:hover {
+    box-shadow: inset 0 7em 10em -5em rgba(255,255,255,0.6),
+    0 0.3em 0.5em -0.2em rgba(100,100,100,1),
+    0 1em 2em -0.75em rgba(100,100,100,0.75),
+    0 1em 3em -0.5em rgba(100,100,100,0.5),
+    0 3em 3em -0.25em rgba(100,100,100,0.2);
 }
 
 .header-title {
@@ -142,17 +158,18 @@ input:focus:-ms-input-placeholder {
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    margin: 3%;
+    width: 75%;
+    margin: auto;
 }
 
 .album-info-header h1 {
-    font-size: 5vmin;
+    font-size: 3vmin;
     color: azure;
     margin-bottom: 0
 }
 
 .album-info-header h2 {
-    font-size: 5vmin;
+    font-size: 3vmin;
     color: chocolate;
     margin-top: 0;
     margin-bottom: 0;

@@ -16,9 +16,11 @@ const AlbumDetailView = React.createClass({
 })
 
 const AlbumDetails = React.createClass({
-	componentDidMount: function(){
+
+	componentDidUpdate: function(){
 		let albumCoverEl = document.getElementsByClassName('album-cover-img')
 		let albumCoverStyle = window.getComputedStyle(albumCoverEl[0],null)
+		console.log('album cover style', albumCoverStyle.getPropertyValue('height'))
 		document.getElementsByClassName('track-list')[0].style.height = albumCoverStyle.getPropertyValue('height')
 	},
 
