@@ -3,8 +3,6 @@
     src: url("./fonts/GothamRoundedBook_21018.ttf") format("truetype")
 }
 
-$inputBG: azure;
-
 * {
     font-family: 'Gotham-Rounded-Book',Helvetica, Arial, sans-serif;
     box-sizing: border-box
@@ -44,7 +42,7 @@ h1 {
     padding-right: .5em;
     font-size: 3vmin;
     text-align: center;
-    color: #fed024;
+    color: #fed024
 }
 
 .album-container img {
@@ -53,49 +51,49 @@ h1 {
 
 .album-container {
     width: 20%;
-    margin-bottom: 2em;
+    margin-bottom: 2em
 }
 
 .header-title {
-    color: yellow;
+    color: yellow
 }
 
 #searchBox {
-    text-align: center;
+    text-align: center
 }
 
 #searchBox input {
     line-height: 1.5em;
-    border: 2px groove $inputBG;
-    background-color: $inputBG;
+    border: 2px groove azure;
+    background-color: azure;
     border-radius: 1em;
     font-size: 2em;
     padding-left: 1.5em;
     padding-right: 1.5em;
     text-align: center;
-    width: 40vw;
+    width: 40vw
 }
 
 #searchBox input:focus {
-    outline: none;
+    outline: none
 }
 
 #artistSuggestions {
-    background: rgba(240, 255, 255, .8);
+    background: rgba(240,255,255,0.8);
     width: 40vw;
     margin: auto;
     color: #1a1a1a;
     border-radius: 1em;
-    position: relative;
+    position: relative
 }
 
-#artistSuggestions div:hover{
+#artistSuggestions div:hover {
     cursor: pointer;
-    background-color: rgba(26, 26, 26,.5);
+    background-color: rgba(26,26,26,0.5)
 }
 
 #searchBoxInputDiv {
-    height: 3.5em;
+    height: 3.5em
 }
 
 input:focus::-webkit-input-placeholder {
@@ -130,46 +128,59 @@ input:focus:-ms-input-placeholder {
     letter-spacing: .2em
 }
 
-.album-detail-wrapper {
-    display: flex;
-    justify-content: space-between
-}
-
 .album-cover {
-    width: 50%
+    width: 50%;
 }
 
-.album-cover img{
+.album-cover img {
+    width: 100%;
     max-width: 100%;
+    height: auto;
 }
 
 .album-info {
-    width: 50%
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    margin: 3%;
 }
 
-.album-info h1 {
-    font-size: 7vmin;
+.album-info-header h1 {
+    font-size: 5vmin;
     color: azure;
-    margin-bottom: 0;
+    margin-bottom: 0
 }
 
-.album-info h2 {
+.album-info-header h2 {
     font-size: 5vmin;
     color: chocolate;
     margin-top: 0;
-}
-
-.album-info h3 {
-    font-size: 2vmin;
-    color: azure;
+    margin-bottom: 0;
     text-align: center;
 }
 
+.album-info-header h3 {
+    font-size: 2vmin;
+    color: azure;
+    text-align: center
+}
+
 .track-list {
-    width: 90%;
-    margin: auto;
-    background-color: rgba(204, 204, 204,.1);
-    padding: 5%;
+    width: 50%;
+    background-color: rgba(204,204,204,0.1);
+    padding-left: 1%;
+    padding-right: 5%;
+    overflow-y: scroll;
+}
+
+.track-list-header {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2%;
+    padding-right: 2%;
+    color: azure;
+    font-weight: bolder;
+    border-bottom: 1px solid whitesmoke;
 }
 
 .track-info {
@@ -178,10 +189,19 @@ input:focus:-ms-input-placeholder {
     margin: 1vw;
 }
 
-.track-duration{
+.track-duration {
     color: chocolate;
 }
 
-.track-name{
+.track-name {
     color: azure;
+}
+
+.track-list::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+.track-list::-webkit-scrollbar {
+    background-color: snow;
 }

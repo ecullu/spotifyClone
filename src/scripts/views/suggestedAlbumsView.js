@@ -33,10 +33,13 @@ const SuggestedAlbumsList = React.createClass({
 		return suggestedAlbumsCollection
 	},
 
+	handleAlbumListClick: function(){
+		document.getElementById('artistSuggestions').style.visibility = 'hidden'
+	},
+
 	render: function(){
-		
 		return (
-			<div className="album-list-wrapper">
+			<div onClick={this.handleAlbumListClick} className="album-list-wrapper">
 				<div className="suggested-albums-header"><h3>Suggested Albums:</h3></div>
 				<div className="album-list">
 					{this.getAlbumJSXArray(this.props.albumList)}

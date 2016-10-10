@@ -61,7 +61,19 @@ const app = function() {
 			albumModel.fetch({
 				dataType: 'json'
 			}).then(()=>{
-				ReactDOM.render(<AlbumDetailView albumDetails={albumModel}/>, document.querySelector('.container'))
+				var suggestedAlbums = new SuggestedAlbumCollection()
+				suggestedAlbums.url = 'https://api.spotify.com/v1/artists/' + albumModel.get('artists')[0].id + '/albums'
+				suggestedAlbums.fetch({
+					dataType: 'json',
+					data:{
+						limit: 5,
+						album_type: 'album',
+						market: 'MX'
+					}
+					
+				}).then(()=>{
+					ReactDOM.render(<AlbumDetailView albumCol={suggestedAlbums} albumDetails={albumModel}/>, document.querySelector('.container'))
+				})
 			})
 		},
 

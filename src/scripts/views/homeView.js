@@ -2,7 +2,6 @@ import React from 'react'
 import {SearchColl, SearchCollection} from '../models/models'
 
 const HomeView = React.createClass({
-
 	render: function(){
 		return (
 				<div id='wrapper'>
@@ -14,9 +13,12 @@ const HomeView = React.createClass({
 })
 
 const Header = React.createClass({
+		handleHeaderClick: function(){
+			document.getElementById('artistSuggestions').style.visibility = 'hidden'
+		},
 		render: function(){
 			return (
-					<div id='header'>
+					<div id='header' onClick={this.handleHeaderClick}>
 						<h1><span className="header-title">Spot</span>.Ident<span className="header-title">ify</span>.</h1>
 					</div>
 				)
@@ -32,7 +34,7 @@ const SearchBox = React.createClass({
 		},
 
 		handleKeyUp: function(event){
-			this.refs.suggestionsDiv.style.display = 'block'
+			this.refs.suggestionsDiv.style.visibility = 'visible'
 			if (event.keyCode !== 13){
 				var suggestions = new SearchCollection()
 				suggestions.fetch({
@@ -54,7 +56,7 @@ const SearchBox = React.createClass({
 			else if (event.keyCode === 13){
 				let artistName = event.target.value.replace(/ /g,'%20')
 				location.hash = 'artist/' + artistName
-				this.refs.suggestionsDiv.style.display = 'none'
+				this.refs.suggestionsDiv.style.visibility = 'hidden'
 				event.target.value = artistName
 			}
 		},
@@ -64,12 +66,16 @@ const SearchBox = React.createClass({
 					console.log('name>', name)
 					location.hash = 'artist/' + name
 					this.refs.searchInput.value = name
-					this.refs.suggestionsDiv.style.display = 'none'
+					this.refs.suggestionsDiv.style.visibility = 'hidden'
 				}			
 		},
 
 		handleInputClick: function(event){
 			event.target.value = ''
+		},
+
+		handleSearchBoxClick:function(){
+			document.getElementById('artistSuggestions').style.visibility = 'hidden'
 		},
 
 		getSuggestions: function(){
@@ -82,7 +88,7 @@ const SearchBox = React.createClass({
 
 		render: function(){
 			return (
-					<div id='searchBox'>
+					<div id='searchBox' onClick={this.handleSearchBoxClick}>
 							<div id='searchBoxInputDiv'>
 								<input placeholder='Search Artists' ref='searchInput' list='artistSuggestions' onKeyUp={this.handleKeyUp} onClick={this.handleInputClick} type='text'/>
 									<div ref='suggestionsDiv' id="artistSuggestions">
